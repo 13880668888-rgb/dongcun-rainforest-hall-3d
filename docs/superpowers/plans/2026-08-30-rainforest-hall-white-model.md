@@ -231,10 +231,29 @@ def build_white_model(params: HallParameters = DEFAULT_PARAMETERS) -> Scene:
         raise ValueError("; ".join(errors))
     half = params.clear_width / 2
     ridge_z = params.eave_height + params.roof_rise
-    # Assemble sand floor, exterior wall/screen placeholders, centered
-    # entrance frame, provisional right opening split, two roof planes,
-    # ridge and lightweight principal-structure placeholders.
-    # All exact coordinates derive from params; no historic dimensions.
+    t = params.wall_thickness
+    opening_start = params.right_opening_offset - params.right_opening_width / 2
+    opening_end = params.right_opening_offset + params.right_opening_width / 2
+    meshes = [
+        box_mesh("sand_floor", (0, params.clear_length / 2, -params.slab_thickness / 2),
+                 (params.clear_width, params.clear_length, params.slab_thickness), "Sand"),
+        box_mesh("left_lower_operable_placeholder", (-half - t / 2, params.clear_length / 2, 1.0),
+                 (t, params.clear_length, 2.0), "Screen"),
+        box_mesh("left_upper_screen", (-half - t / 2, params.clear_length / 2, 3.0),
+                 (t, params.clear_length, 2.0), "White_Model"),
+        box_mesh("right_wall_front", (half + t / 2, opening_start / 2, 2.0),
+                 (t, opening_start, 4.0), "White_Model"),
+        box_mesh("right_wall_back", (half + t / 2, (opening_end + params.clear_length) / 2, 2.0),
+                 (t, params.clear_length - opening_end, 4.0), "White_Model"),
+        box_mesh("entrance_frame", (0, -t / 2, 2.0),
+                 (params.entrance_frame_width + 2 * t, t, 4.0), "Structure"),
+        quad_mesh("roof_left", ((-half, 0, 4.0), (0, 0, ridge_z),
+                 (0, params.clear_length, ridge_z), (-half, params.clear_length, 4.0)), "White_Model"),
+        quad_mesh("roof_right", ((0, 0, ridge_z), (half, 0, 4.0),
+                 (half, params.clear_length, 4.0), (0, params.clear_length, ridge_z)), "White_Model"),
+        box_mesh("ridge", (0, params.clear_length / 2, ridge_z),
+                 (0.05, params.clear_length, 0.05), "Structure"),
+    ]
     return Scene(meshes=tuple(meshes), metadata={
         "units": "metres",
         "clear_envelope": {
@@ -255,7 +274,7 @@ def build_white_model(params: HallParameters = DEFAULT_PARAMETERS) -> Scene:
     })
 ```
 
-The implementation must replace the explanatory assembly comments above with explicit `box_mesh` and `quad_mesh` calls; no implicit wall or roof dimensions may be introduced.
+The entrance frame mesh is a reference envelope; the Blender adapter must represent the 2.20 m double-door opening as a named child object without changing the 4.80 m frame clearance.
 
 - [ ] **Step 4: Run geometry and parameter tests**
 
