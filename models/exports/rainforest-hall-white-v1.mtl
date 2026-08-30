@@ -1,0 +1,37 @@
+# Dongcun Rainforest Hall white-model materials
+
+newmtl White_Model
+Kd 0.820 0.840 0.820
+Ka 0.100 0.100 0.100
+Ks 0.050 0.050 0.050
+d 1.000
+
+newmtl Sand
+Kd 0.720 0.580 0.380
+Ka 0.100 0.100 0.100
+Ks 0.050 0.050 0.050
+d 1.000
+
+newmtl Structure
+Kd 0.240 0.270 0.250
+Ka 0.100 0.100 0.100
+Ks 0.050 0.050 0.050
+d 1.000
+
+newmtl Screen
+Kd 0.460 0.570 0.480
+Ka 0.100 0.100 0.100
+Ks 0.050 0.050 0.050
+d 1.000
+
+newmtl Glass_Reference
+Kd 0.450 0.720 0.780
+Ka 0.100 0.100 0.100
+Ks 0.050 0.050 0.050
+d 1.000
+
+newmtl Roof_Reference
+Kd 0.720 0.800 0.740
+Ka 0.100 0.100 0.100
+Ks 0.050 0.050 0.050
+d 1.000
