@@ -1,0 +1,95 @@
+{
+  "baseline": {
+    "path": "models/source/rainforest-hall-white-v1.blend",
+    "sha256": "8183b5d7d7534890501e064d37505bd46307a580648a1ce6c73eee7096383075"
+  },
+  "files": {
+    "models/exports/rainforest-hall-material-concept-v2.glb": {
+      "bytes": 689248,
+      "sha256": "20b3846e83a8853c75ba40d42ac67211a86d9f75201bda2955e793de6631606d"
+    },
+    "models/source/rainforest-hall-material-concept-v2.blend": {
+      "bytes": 2737552,
+      "sha256": "045095cc6d0ba248b850efa7053dd66e926c078dccf2d8d991dd27c798dad129"
+    },
+    "models/source/rainforest-hall-white-v1.blend": {
+      "bytes": 1032988,
+      "sha256": "8183b5d7d7534890501e064d37505bd46307a580648a1ce6c73eee7096383075"
+    },
+    "renders/concept-v2/entrance-to-rainforest-hall-v2.png": {
+      "bytes": 1010534,
+      "sha256": "d47861bbfbb7aaec1cc224083d208f53a67dfef128bc6d251af459590af63304"
+    },
+    "renders/concept-v2/middle-life-tree-v2.png": {
+      "bytes": 1062350,
+      "sha256": "d3a1e47bb6537b216b71e918d563a45e52c9375ceda28c90d226c8b7abb317af"
+    },
+    "renders/concept-v2/rainforest-hall-to-banquet-hall-v2.png": {
+      "bytes": 895181,
+      "sha256": "f6596b0ec4f3e048734a3858700f566d1fbbedbd7044b0523e6445091abd9eaa"
+    }
+  },
+  "generated_and_validated_by": "Blender 5.1.2",
+  "locked_dimensions": {
+    "clear_length_m": {
+      "actual": 25.0,
+      "expected": 25.0,
+      "pass": true
+    },
+    "clear_width_m": {
+      "actual": 14.8,
+      "expected": 14.8,
+      "pass": true
+    },
+    "constant_width_samples_m": {
+      "actual": [
+        14.8,
+        14.8,
+        14.8
+      ],
+      "expected": [
+        14.8,
+        14.8,
+        14.8
+      ],
+      "pass": true
+    },
+    "double_door_clear_width_m": {
+      "actual": 2.2,
+      "expected": 2.2,
+      "pass": true
+    },
+    "entrance_frame_width_m": {
+      "actual": 4.8,
+      "expected": 4.8,
+      "pass": true
+    },
+    "stage_height_m": {
+      "actual": 4.0,
+      "expected": 4.0,
+      "pass": true
+    }
+  },
+  "main_route": {
+    "minimum_clear_width_m": 2.2,
+    "pass": true
+  },
+  "provisional_before_site_remeasurement": [
+    "fixture_positions",
+    "life_tree",
+    "right_opening",
+    "roof",
+    "structure_grid"
+  ],
+  "replacement_relationship": "V1 for material-concept review only; V1 remains locked white-model baseline",
+  "required_collections": [
+    "V2_BAR_PHOTO",
+    "V2_CANOPY_PLANTS",
+    "V2_LIFE_TREE_PROVISIONAL",
+    "V2_LIGHTS_CAMERAS",
+    "V2_MODULAR_FURNITURE",
+    "V2_OPERABLE_LEFT_SYSTEM",
+    "V2_ROUTE_REFERENCE"
+  ],
+  "status": "PASS"
+}
