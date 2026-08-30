@@ -1,15 +1,15 @@
 # 可编辑 Blender 源模型
 
-当前仓库已经保存参数化建模代码、OBJ 与 GLB 白模。由于自动执行环境没有安装
-Blender，二进制 `.blend` 文件需要在装有 Blender 的电脑上执行以下命令生成：
+当前仓库已经保存参数化建模代码、OBJ、GLB白模和由Blender 4.0.2实际生成的
+可编辑源模型：
+
+`models/source/rainforest-hall-white-v1.blend`
+
+需要重新生成时执行：
 
 ```bash
 blender --background --python src/blender/build_white_model.py
 ```
-
-生成文件：
-
-`models/source/rainforest-hall-white-v1.blend`
 
 运行前可执行：
 

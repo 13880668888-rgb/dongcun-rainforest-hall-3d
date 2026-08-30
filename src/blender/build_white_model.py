@@ -34,7 +34,10 @@ def _material(bpy, name: str, color: tuple[float, float, float, float]):
     principled.inputs["Roughness"].default_value = 0.82
     principled.inputs["Alpha"].default_value = color[3]
     if color[3] < 1:
-        material.surface_render_method = "DITHERED"
+        if hasattr(material, "surface_render_method"):
+            material.surface_render_method = "DITHERED"
+        else:
+            material.blend_method = "BLEND"
     return material
 
 

@@ -4,6 +4,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import shutil
 from pathlib import Path
 
 from src.rainforest_hall.export_glb import write_glb
@@ -83,6 +84,30 @@ class ExportTests(unittest.TestCase):
         self.assertEqual(report["target"], "models/source/rainforest-hall-white-v1.blend")
         self.assertEqual(report["clear_envelope"], [14.8, 25.0, 4.0])
         self.assertEqual(report["status"], "ready")
+
+    @unittest.skipUnless(shutil.which("blender"), "Blender is not installed")
+    def test_blender_adapter_generates_an_editable_source_model(self):
+        root = Path(__file__).parents[1]
+        target = root / "models/source/rainforest-hall-white-v1.blend"
+        target.unlink(missing_ok=True)
+        result = subprocess.run(
+            [
+                "blender",
+                "--background",
+                "--python-exit-code",
+                "1",
+                "--python",
+                "src/blender/build_white_model.py",
+            ],
+            cwd=root,
+            capture_output=True,
+            text=True,
+        )
+        output = result.stdout + result.stderr
+        self.assertEqual(result.returncode, 0, output)
+        self.assertNotIn("Traceback", output)
+        self.assertTrue(target.exists())
+        self.assertGreater(target.stat().st_size, 10_000)
 
 
 if __name__ == "__main__":

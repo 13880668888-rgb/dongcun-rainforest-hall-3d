@@ -14,6 +14,7 @@
 
 - `models/exports/rainforest-hall-white-v1.glb`：网页及多数三维查看器
 - `models/exports/rainforest-hall-white-v1.obj`：酷家乐、SketchUp、Blender 等软件的交换模型
+- `models/source/rainforest-hall-white-v1.blend`：Blender 4.0.2实际生成的可编辑源模型
 - `docs/dimensions/white-model-v1.json`：机器校验尺寸报告
 
 本地打开网页预览：
